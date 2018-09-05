@@ -26,3 +26,32 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.nav {
+  color: rgb(255,255,255);
+}
+
+.nav:hover {
+  color: rgb(255,255,255);
+  text-decoration: inherit;
+}
+
+#route-card {
+  background-color: black;
+}
+
+nav, h1, h2, h3, h4 {
+  font-family: TimesNewRoman,
+  "Times New Roman", Times, Baskerville, Georgia, serif;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 22px;
+  position: relative;
+  color: #090909;
+  padding: 0 10px;
+  background-color: #fff;
+  border: 0 none;
+  line-height: 50px;
+}

@@ -1,6 +1,6 @@
 # My-big-ideas
 
-An app to help me track all my big ideas. Creating my future by documenting the big stuff.
+An app to help me track all my big ideas. Creating my future by tracking my goals. 
 
 Things you may want to cover:
 

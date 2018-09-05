@@ -5,6 +5,8 @@ import {
   compose
 } from 'redux';
 import thunk from 'redux-thunk';
+import ideas from './reducers/ideas'
+import ideaFormData from './reducers/ideaFormData'
 
 const reducers = combineReducers( {
   ideas,

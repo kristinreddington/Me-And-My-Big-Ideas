@@ -13,13 +13,15 @@ class Routes extends Component {
   return (
   <Router history={history}>
     <div>
-      <NavLink to='/'>My Big Ideas</NavLink>
-      <NavLink to='/ideas'>Ideas</NavLink>
-      <NavLink to='/ideas/new'>New Idea</NavLink>
+      <div id="route-card">
+        <NavLink className="nav justify-content-center" to='/'>My Big Ideas</NavLink>
+        <NavLink className="nav justify-content-center" to='/ideas'>Ideas</NavLink>
+        <NavLink className="nav justify-content-center" to='/ideas/new'>New Idea</NavLink>
+      </div>
 
       <Route exact path='/' component={Home} />
       <Route exact path='/ideas' component={Ideas} />
-      <Route exact path='/ideas/new' component={IdeaForm} />
+      <Route path='/ideas/new' component={IdeaForm} />
       <Route exact path='/ideas/:id/edit' component={EditIdea} />
     </div>
   </Router>
