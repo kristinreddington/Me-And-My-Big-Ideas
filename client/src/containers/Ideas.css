@@ -1,0 +1,27 @@
+.form-control {
+  width: 300px;
+  margin: 0 auto;
+}
+button[type="submit"] {
+  margin: 0 auto;
+  align-items: center;
+}
+
+input[type="textarea"] {
+  height: 75px;
+}
+
+input[type="file"] {
+  border-radius: 0px;
+}
+
+label {
+width: 300px;
+margin: 0 auto;
+font-size: 10px;
+letter-spacing: 1px;
+line-height: 14px;
+text-transform: uppercase;
+display: block;
+font-weight: 400;
+}
