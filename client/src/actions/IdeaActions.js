@@ -54,14 +54,14 @@ export const createIdea = idea => {
 export const deleteIdea = idea => {
   console.log(idea)
   return (dispatch) => {
-    return fetch('http://localhost:3001/api/ideas', {
+    return fetch(`http://localhost:3001/api/ideas/${idea}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ idea: idea })
+      body: JSON.stringify({ id: idea })
     })
-    .then(res => res.json())
+    // .then(res => res.json())
     .then(idea => {
       dispatch(removeIdea(idea))
     })

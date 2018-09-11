@@ -1,5 +1,5 @@
 class Api::IdeasController < ApplicationController
-  before_action :set_idea, :only => [:show, :update, :destroy]
+  before_action :set_idea, :only => [:show, :destroy]
 
   def index
     @ideas = Idea.all
@@ -8,12 +8,16 @@ class Api::IdeasController < ApplicationController
 
   def create
     @idea = Idea.new(idea_params)
+    if params[:idea][:note]
     @note = Note.new(
     :idea_id => @idea.id,
     :text => params[:idea][:note])
+  end
+    if params[:idea][:file]
     @image = Image.new(
     :idea_id => @idea.id,
     :url => params[:idea][:file])
+  end
       @idea.notes << @note
       @idea.images << @image
     if @idea.save
@@ -36,6 +40,7 @@ class Api::IdeasController < ApplicationController
   end
 
   def destroy
+    @idea = Idea.find_by(:id => params[:id])
     if @idea.destroy
       render json: { :message => "Successfully Deleted!" }, :status => 204
     else
@@ -49,7 +54,7 @@ class Api::IdeasController < ApplicationController
     params.require(:idea).permit([
       :title, :description,
       :notes_attributes => %I[text, _destroy],
-      :files_attributes => %I[url, _destroy]
+      :images_attributes => %I[file, _destroy]
       ])
   end
 

@@ -11,19 +11,24 @@ class Ideas extends Component {
     this.props.getIdeas()
   }
 
-  handleEdit(ideaId){
-    this.props.history.push(`/books/${ideaId}/edit`);
-  }
+  handleNewIdea() {
+      this.props.history.push('/ideas/new');
+    }
 
-  handleRemove(ideaId) {
-    this.props.deleteIdea()
+  handleEdit(ideaId) {
+    this.props.history.push(`/ideas/${ideaId}/edit`);
   }
 
 render() {
   return(
     <div className="Idea-card">
     <hr />
-      {this.props.ideas.map(idea => <IdeaCard handleEdit={this.handleEdit} handleRemove={this.handleRemove} idea={idea} key={idea.id}/> )}
+        <div className="clearfix">
+          <div className="pull-right">
+            <button onClick={e => this.handleNewIdea()}> New Book </button>
+            </div>
+          </div>
+      {this.props.ideas.map(idea => <IdeaCard handleEdit={this.props.handleEdit()} handleRemove={this.props.deleteIdea} idea={idea} key={idea.id}/> )}
     </div>
     )
   }
@@ -35,4 +40,4 @@ const mapStateToProps = (state) => {
   })
 }
 
-export default connect(mapStateToProps, { getIdeas })(Ideas);
+export default connect(mapStateToProps, { getIdeas, deleteIdea })(Ideas);

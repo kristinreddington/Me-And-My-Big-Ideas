@@ -14,7 +14,9 @@ const IdeaCard = (props) => {
         Edit</button>
           &nbsp;
       <button
-        onClick={e => props.handleRemove(props.idea.id)} >
+        onClick={ function(event) {
+          props.handleRemove(props.idea.id)
+        }} >
         Remove</button>
         </div>
     </div>
