@@ -1,8 +1,8 @@
 const initialState = {
   title: '',
   description: '',
-  images: [],
-  notes: []
+  file: '',
+  note: ''
 }
 
 export default (state = initialState, action) => {

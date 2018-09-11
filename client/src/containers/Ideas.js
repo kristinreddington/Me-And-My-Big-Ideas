@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getIdeas } from '../actions/IdeaActions'
+import { getIdeas, deleteIdea } from '../actions/IdeaActions'
+
+import IdeaCard from '../components/IdeaCard'
 import './Ideas.css'
 
 class Ideas extends Component {
@@ -9,19 +11,28 @@ class Ideas extends Component {
     this.props.getIdeas()
   }
 
+  handleEdit(ideaId){
+    this.props.history.push(`/books/${ideaId}/edit`);
+  }
+
+  handleRemove(ideaId) {
+    this.props.deleteIdea()
+  }
+
 render() {
   return(
-    <div class="idea-card">
-    "All my genius ideas mwahahah"
+    <div className="Idea-card">
+    <hr />
+      {this.props.ideas.map(idea => <IdeaCard handleEdit={this.handleEdit} handleRemove={this.handleRemove} idea={idea} key={idea.id}/> )}
     </div>
     )
   }
 }
 
 const mapStateToProps = (state) => {
-  return {
+  return ({
     ideas: state.ideas
-  }
+  })
 }
 
 export default connect(mapStateToProps, { getIdeas })(Ideas);

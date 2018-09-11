@@ -2,16 +2,24 @@ class Api::IdeasController < ApplicationController
   before_action :set_idea, :only => [:show, :update, :destroy]
 
   def index
-    @ideas = Idea.order(:id)
+    @ideas = Idea.all
     render :json => @ideas
   end
 
   def create
-    idea = Idea.new(idea_params)
-    if idea.save
-      render :json => idea
+    @idea = Idea.new(idea_params)
+    @note = Note.new(
+    :idea_id => @idea.id,
+    :text => params[:idea][:note])
+    @image = Image.new(
+    :idea_id => @idea.id,
+    :url => params[:idea][:file])
+      @idea.notes << @note
+      @idea.images << @image
+    if @idea.save
+      render :json => @idea
     else
-      render :json => {:message => product.errors }, :status => 400
+      render :json => {:message => @idea.errors }, :status => 400
     end
   end
 
@@ -38,7 +46,11 @@ class Api::IdeasController < ApplicationController
   private
 
   def idea_params
-    params.require(:idea).permit(:title, :description, :notes_attributes => [:text, :id], :images_attributes => [:url, :id])
+    params.require(:idea).permit([
+      :title, :description,
+      :notes_attributes => %I[text, _destroy],
+      :files_attributes => %I[url, _destroy]
+      ])
   end
 
   def set_idea

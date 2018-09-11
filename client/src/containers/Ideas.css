@@ -1,27 +1,29 @@
 .form-control {
   width: 300px;
   margin: 0 auto;
+  vertical-align: middle;
 }
 button[type="submit"] {
   margin: 0 auto;
   align-items: center;
+  vertical-align: middle;
 }
 
 input[type="textarea"] {
   height: 75px;
+  vertical-align: middle;
 }
 
 input[type="file"] {
   border-radius: 0px;
+  vertical-align: middle;
 }
 
 label {
-width: 300px;
-margin: 0 auto;
-font-size: 10px;
-letter-spacing: 1px;
-line-height: 14px;
-text-transform: uppercase;
-display: block;
-font-weight: 400;
+  width: 300px;
+  margin: 0 auto;
+  font-size: 10px;
+  text-transform: uppercase;
+  display: block;
+  font-weight: 400;
 }

@@ -6,6 +6,10 @@ export default (state = [], action) => {
     case 'CREATE_IDEA_SUCCESS':
     return state.concat(action.idea)
 
+    case 'DELETE_IDEA_SUCCESS':
+    const firstMatchIndex = state.indexOf(action.idea)
+    return state.filter((item, index) => index !== firstMatchIndex )
+
     default:
     return state;
   }

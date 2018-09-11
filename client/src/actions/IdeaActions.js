@@ -15,6 +15,13 @@ const addIdea = idea => {
   }
 }
 
+const removeIdea = idea => {
+  return {
+    type: 'DELETE_IDEA_SUCCESS',
+    idea
+  }
+}
+
 // Async Actions
 export const getIdeas = () => {
   return (dispatch) => {
@@ -26,9 +33,10 @@ export const getIdeas = () => {
 }
 
 export const createIdea = idea => {
+  console.log(idea)
   return (dispatch) => {
     return fetch('http://localhost:3001/api/ideas', {
-      type: 'POST',
+      method: "POST",
       headers: {
         'Content-Type': 'application/json'
       },
@@ -39,6 +47,25 @@ export const createIdea = idea => {
       dispatch(addIdea(idea))
       dispatch(resetIdeaFormData())
     })
+    .catch(error => console.log(error))
+  }
+}
+
+export const deleteIdea = idea => {
+  console.log(idea)
+  return (dispatch) => {
+    return fetch('http://localhost:3001/api/ideas', {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ idea: idea })
+    })
+    .then(res => res.json())
+    .then(idea => {
+      dispatch(removeIdea(idea))
+    })
+    .then(dispatch(getIdeas()))
     .catch(error => console.log(error))
   }
 }
