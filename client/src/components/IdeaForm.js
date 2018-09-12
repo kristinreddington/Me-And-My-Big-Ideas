@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createIdea } from '../actions/IdeaActions'
 import { updateIdeaFormData } from '../actions/IdeaFormActions'
-import './Ideas.css'
+import '../containers/Ideas.css'
 
 class IdeaForm extends Component {
 

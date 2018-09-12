@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Router, Switch, NavLink, Route } from 'react-router-dom';
+import React from 'react';
+import { Router, NavLink, Route } from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory';
 
 import Home from '../components/Home'
@@ -19,7 +19,7 @@ const Routes = () =>
 
 
       <Route exact path='/' component={Home} />
-      <Route exact path='/ideas' component={Ideas} />
+      <Route exact path='/ideas/' component={Ideas} />
       <Route path='/ideas/new' component={IdeaNew} />
       <Route exact path='/ideas/:id/edit' component={IdeaEdit} />
 

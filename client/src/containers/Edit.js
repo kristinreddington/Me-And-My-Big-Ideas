@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import IdeaForm2 from './IdeaForm2';
 
+
 class IdeaEdit extends Component {
   render() {
     return (
