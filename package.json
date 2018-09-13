@@ -1,0 +1,23 @@
+{
+  "name": "my-big-ideas-app",
+  "engines": {
+    "node": "6.11.2"
+  },
+  "version": "1.0.0",
+  "description": "An app to help me track all my big ideas. Creating my future by tracking my goals.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "build": "cd client && npm install && npm run build && cd ..",
+    "deploy": "cp -a client/build/. public/",
+    "postinstall": "npm run build && npm run deploy && echo 'Client built!'"
+  },
+  "author": "Kristin Reddington",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kristinreddington/Me-And-My-Big-Ideas/issues"
+  },
+  "homepage": "https://github.com/kristinreddington/Me-And-My-Big-Ideas#readme"
+}
