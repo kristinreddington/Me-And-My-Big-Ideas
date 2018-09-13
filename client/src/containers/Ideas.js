@@ -24,8 +24,8 @@ class Ideas extends Component {
         <div className="clearfix">
           <div className="pull-right">
             <button
-              onClick={e => this.handleNewIdea()}
-              className="btn btn-success">
+              onClick={e => this.handleNewIdea()} >
+
               New Idea
             </button>
           </div>
@@ -66,14 +66,13 @@ class Ideas extends Component {
           </td>
           <td>
             <button
-              onClick={e => this.handleEdit(book.id)}
-              className="btn btn-primary">
+              onClick={e => this.handleEdit(book.id)} >
               Edit
             </button>
             &nbsp;
             <button
               onClick={e => this.handleRemove(book.id)}
-              className="btn btn-danger">
+              className="danger">
               Remove
             </button>
           </td>

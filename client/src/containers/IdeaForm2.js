@@ -65,7 +65,7 @@ class IdeaForm2 extends Component {
         </div>
         {this.renderUploadFormProgress()}
 
-        <button className="btn btn-primary" disabled={this.state.isSubmittingForm}
+        <button className="save" disabled={this.state.isSubmittingForm}
           onClick={e => this.handleFormSubmit()}>
           {this.state.isSubmittingForm ? 'Saving...' : 'Save'} </button>
           &nbsp;
@@ -99,11 +99,9 @@ class IdeaForm2 extends Component {
          }}
          id="idea_images"
          onChange={e => this.handleIdeaImagesChange(e)}
-         className="form-control"
        />
        <label
          disabled={this.state.isSubmittingForm}
-         className="btn btn-success"
          htmlFor="idea_images">
          <span className="glyphicon glyphicon-cloud-upload" />
          &nbsp; &nbsp;
@@ -119,7 +117,7 @@ class IdeaForm2 extends Component {
 
  renderSelectedImagesFiles() {
    let fileDOMs = this.state.selectedImagesFiles.map((el, index) => {
-     if (el._destroy) { // we use _destroy to mark the removed photo
+     if (el._destroy) {
        return null;
      }
 
