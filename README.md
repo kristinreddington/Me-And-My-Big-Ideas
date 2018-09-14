@@ -1,6 +1,6 @@
 # My-big-ideas
 
-An app to help me track all my big ideas. Creating my future by tracking my goals. 
+An app to help me track all my big ideas. Creating my future by tracking my goals.
 
 Things you may want to cover:
 
@@ -16,6 +16,7 @@ Things you may want to cover:
 
 * How to run the test suite
 
+top shelf web stack rails 5 api activeadmin create ract app 
 * Services
 
 * Deployment instructions
