@@ -91,7 +91,7 @@ class Ideas extends Component {
       return idea.id !== ideaId;
     });
     this.setState({ ideas: ideas });
-    axiosClient.delete(`/api/ideas/${ideaId}`);
+    axios.delete(`/api/ideas/${ideaId}`); 
   }
 }
 
