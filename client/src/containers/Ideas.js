@@ -13,7 +13,7 @@ class Ideas extends Component {
   // }
 
   componentWillMount() {
-    axiosClient.get('/api/ideas.json').then(response => {
+    axios.get('/api/ideas.json').then(response => {
       this.setState({ ideas: response.data });
     });
   }

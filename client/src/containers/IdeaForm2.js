@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../containers/Ideas.css'
-import axiosClient from '../axiosClient';
+import axios from 'axios';
 
 class IdeaForm2 extends Component {
 
@@ -20,7 +20,7 @@ class IdeaForm2 extends Component {
 
   componentWillMount() {
     if (this.props.match.params.id) {
-      axiosClient.get(`/api/ideas/${this.props.match.params.id}`).then(response => {
+      axios.get(`/api/ideas/${this.props.match.params.id}`).then(response => {
         console.log(response.data);
         this.setState({
           selectedImagesFiles: response.data.images,
@@ -273,7 +273,7 @@ class IdeaForm2 extends Component {
      ? `/api/ideas/${this.state.idea.id}.json`
      : '/api/ideas.json';
 
-   axiosClient[submitMethod](url, this.buildFormData(), {
+   axios[submitMethod](url, this.buildFormData(), {
        onUploadProgress: progressEvent => {
          let percentage = progressEvent.loaded * 100.0 / progressEvent.total;
          this.setState({
