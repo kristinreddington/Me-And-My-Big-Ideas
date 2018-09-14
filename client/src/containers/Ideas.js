@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Ideas.css'
-import axiosClient from '../axiosClient';
+import axios from 'axios';
 
 class Ideas extends Component {
   constructor(props) {
